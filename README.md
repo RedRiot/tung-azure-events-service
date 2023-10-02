@@ -1,1 +1,1 @@
-# tung-azure-events-service
+# events-service

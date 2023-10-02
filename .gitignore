@@ -22,3 +22,13 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/.idea/
+/infrastructure/01-technical-user-locally/.terraform/
+/infrastructure/01-technical-user-locally/.terraform.lock.hcl
+/infrastructure/01-technical-user-locally/terraform.tfstate
+/infrastructure/02-s3-bucket-locally/.terraform/
+/infrastructure/02-s3-bucket-locally/.terraform.lock.hcl
+/infrastructure/02-s3-bucket-locally/terraform.tfstate
+/infrastructure/02-s3-bucket-locally/terraform.tfstate.backup
+/target/
+/infrastructure/03-infrastructure/.terraform/
