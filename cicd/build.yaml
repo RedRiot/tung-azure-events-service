@@ -29,7 +29,7 @@ steps:
        mvn package
    displayName: 'Create jar'
  - script: |
-       docker build -t tunglhsystems/azure-events-service .
+       docker build -t tunglhsystems/azure-events-service:v1.1 .
        docker images
    displayName: 'Build docker image'
  - script: |
