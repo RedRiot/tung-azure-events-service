@@ -11,6 +11,11 @@ steps:
       knownHostsEntry: $(known_hosts)
       sshPublicKey: $(public_key)
       sshKeySecureFile: 'id_rsa'
+ - task: JavaToolInstaller@0
+   inputs:
+     versionSpec: '17'
+     jdkArchitectureOption: 'x64'
+     jdkSourceOption: 'PreInstalled'
  - script: |
       java --version
    displayName: 'Checking Java Version'
