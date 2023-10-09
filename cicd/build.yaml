@@ -6,10 +6,10 @@ variables:
   - group: ssh
   
 steps:
- - task: InstallSSHKey
+ - task: InstallSSHKey@0
    inputs:
       knownHostsEntry: $(known_hosts)
-      sshPublicKey: $((public_key)
+      sshPublicKey: $(public_key)
       sshKeySecureFile: 'id_rsa'
  - script: |
       java --version
@@ -31,4 +31,4 @@ steps:
        docker login -u $(docker_username) -p $(docker_password)
        docker push tunglhsystems/azure-events-service:v1.1
 
-   displayName: 'Push docker image'  
+   displayName: 'Push docker image'
