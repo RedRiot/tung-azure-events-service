@@ -1,2 +1,34 @@
 pool:
   vmImage: 'ubuntu-latest'
+
+variables:
+  -group: dockerhub
+  -group: ssh
+  
+ steps:
+   - task: InstallSSHKey
+     inputs:
+        knownHostsEntry: $(known_hosts)
+        sshPublicKey: $((public_key)
+        sshKeySecureFile: 'id_rsa'
+   - script: |
+        java --version
+     displayName: 'Checking Java Version'
+   - script: |
+        mvn compile
+     displayName: 'Compile files'        
+   - script: |
+        mvn test
+     displayName: 'Compile tests'    
+   - script: |
+         mvn package
+     displayName: 'Create jar'           
+   - script: |
+         docker build -t tunglhsystems/azure-events-service .
+         docker images
+     displayName: 'Build docker image'
+   - script: |
+         docker login -u $(docker_username) -p $(docker_password)
+         docker push tunglhsystems/azure-events-service:v1.1
+        
+     displayName: 'Push docker image'  
